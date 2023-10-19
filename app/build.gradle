@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace 'com.example.parcial_1_am_acn4b_segovia_agustin_forcada_agustin'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.parcial_1_am_acn4b_segovia_agustin_forcada_agustin"
         minSdk 24
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 

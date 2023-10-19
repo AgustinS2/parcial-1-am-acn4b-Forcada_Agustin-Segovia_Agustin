@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+
+    android:background="@drawable/fondoLogin"
+    >
 
     <LinearLayout
         android:id="@+id/LayoutHorizontal"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#2B36FF"
+        android:background="@color/primaryColor"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,9 +43,12 @@
             android:id="@+id/editTextTextEmailAddress"
             android:layout_width="278dp"
             android:layout_height="60dp"
+            android:background="@color/inputColor"
             android:ems="10"
+            android:padding="10dp"
             android:hint="Ingrese su mail"
             android:inputType="textEmailAddress"
+            android:textColorHint="#FFFFFF"
             android:visibility="visible" />
 
         <EditText
@@ -51,15 +57,23 @@
             android:layout_height="60dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
+            android:background="@color/inputColor"
             android:ems="10"
             android:hint="Ingrese su contraseña"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColorHint="#FFFFFF" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Iniciar sesion" />
+            android:backgroundTint="@color/primaryColor"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="@string/loginText"
+            android:textColor="@color/white"
+            />
 
     </LinearLayout>
 
