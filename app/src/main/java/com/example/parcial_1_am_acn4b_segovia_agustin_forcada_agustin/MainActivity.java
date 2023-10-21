@@ -1,7 +1,9 @@
 package com.example.parcial_1_am_acn4b_segovia_agustin_forcada_agustin;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,6 +35,22 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "No entre", Toast.LENGTH_SHORT).show();
             }
         });
+
+    }
+
+    private void showErrorDialog()
+    {
+        AlertDialog.Builder builder =new AlertDialog.Builder(this);
+        builder.setTitle("Error");
+        builder.setMessage("Nombre de usuario o contraseña incorrectos");
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
 
     }
 }
