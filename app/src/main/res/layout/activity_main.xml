@@ -6,37 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
 
-    android:background="@drawable/fondoLogin"
+    android:background="@drawable/fondo2"
     >
 
-    <LinearLayout
-        android:id="@+id/LayoutHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/primaryColor"
-        android:orientation="horizontal"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:text="NOMBRE DEL BANCO"
+        android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="NOMBRE DEL BANCO"
-            android:textColor="#FDFCFC" />
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/LayoutVertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:gravity="center"
+        android:gravity="center_horizontal|center_vertical"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/footer"
-        app:layout_constraintTop_toBottomOf="@id/LayoutHorizontal"
+        app:layout_constraintTop_toTopOf="parent"
         tools:layout_constraintBottom_toBottomOf="parent">
 
         <EditText
@@ -44,11 +37,13 @@
             android:layout_width="278dp"
             android:layout_height="60dp"
             android:background="@color/inputColor"
+            android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+            android:drawablePadding="10dp"
             android:ems="10"
-            android:padding="10dp"
             android:hint="Ingrese su mail"
             android:inputType="textEmailAddress"
-            android:textColorHint="#FFFFFF"
+            android:padding="10dp"
+            android:textColorHint="#000000"
             android:visibility="visible" />
 
         <EditText
@@ -58,11 +53,13 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:background="@color/inputColor"
+            android:drawableLeft="@drawable/ic_baseline_info_24"
+            android:drawablePadding="10dp"
             android:ems="10"
             android:hint="Ingrese su contraseña"
             android:inputType="textPassword"
             android:padding="10dp"
-            android:textColorHint="#FFFFFF" />
+            android:textColorHint="#000000" />
 
         <Button
             android:id="@+id/button3"
@@ -72,8 +69,18 @@
             android:gravity="center"
             android:padding="15dp"
             android:text="@string/loginText"
-            android:textColor="@color/white"
-            />
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/buttonRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/primaryColor"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="@string/textRegister"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">parcial-1-am-acn4b-Segovia_Agustin-Forcada_Agustin</string>
     <string name="loginText">Iniciar sesion</string>
+    <string name="textRegister">Registrate</string>
 </resources>
