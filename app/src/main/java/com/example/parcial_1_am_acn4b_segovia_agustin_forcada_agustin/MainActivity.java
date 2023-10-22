@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (usuario.getText().toString().toUpperCase().equals("AGUSTIN") && password.getText().toString().toUpperCase().equals("ABC123"))
                 {
-                    Toast.makeText(MainActivity.this, "Entre", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent();
+                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                    startActivity(intent);
                 }
                 else
                 {
