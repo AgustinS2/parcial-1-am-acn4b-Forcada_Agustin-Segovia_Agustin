@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,9 +31,14 @@ public class MainActivity extends AppCompatActivity {
                 if (usuario.getText().toString().toUpperCase().equals("AGUSTIN") && password.getText().toString().toUpperCase().equals("ABC123"))
                 {
                     Toast.makeText(MainActivity.this, "Entre", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent();
                 }
                 else
-                    Toast.makeText(MainActivity.this, "No entre", Toast.LENGTH_SHORT).show();
+                {
+                    showErrorDialog();
+
+                }
+
             }
         });
 
