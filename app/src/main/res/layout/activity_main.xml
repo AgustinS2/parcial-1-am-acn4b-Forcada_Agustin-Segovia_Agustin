@@ -52,7 +52,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:background="@color/inputColor"
+            android:background="#700D5CBC"
             android:drawableLeft="@drawable/ic_baseline_info_24"
             android:drawablePadding="10dp"
             android:ems="10"
