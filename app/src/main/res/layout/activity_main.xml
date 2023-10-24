@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
 
-    android:background="@drawable/fondo"
+    android:background="@drawable/background"
     >
 
     <TextView
@@ -37,14 +37,15 @@
             android:layout_width="278dp"
             android:layout_height="60dp"
             android:background="@color/inputColor"
-            android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+            android:drawableStart="@drawable/ic_baseline_person_outline_24"
             android:drawablePadding="10dp"
             android:ems="10"
-            android:hint="Ingrese su mail o Usuario"
+            android:hint="@string/place_holder_login"
             android:inputType="textEmailAddress"
             android:padding="10dp"
             android:textColorHint="#000000"
-            android:visibility="visible" />
+            android:autofillHints="emailAddress"
+            />
 
         <EditText
             android:id="@+id/password"
@@ -52,14 +53,16 @@
             android:layout_height="60dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:background="#700D5CBC"
-            android:drawableLeft="@drawable/ic_baseline_info_24"
+            android:background="@color/inputColor"
+            android:drawableStart="@drawable/ic_baseline_info_24"
             android:drawablePadding="10dp"
             android:ems="10"
-            android:hint="Ingrese su contraseña"
+            android:hint="@string/place_holder_password"
             android:inputType="textPassword"
             android:padding="10dp"
-            android:textColorHint="#000000" />
+            android:textColorHint="#000000"
+            android:autofillHints="password"
+            />
 
         <Button
             android:id="@+id/buttonLogin"

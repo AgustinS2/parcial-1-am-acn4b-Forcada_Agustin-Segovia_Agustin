@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondoColor"
-    >
+    android:background="@color/backgroundColor">
 
     <LinearLayout
         android:id="@+id/header"
@@ -13,42 +11,43 @@
         android:layout_height="80dp"
         android:background="@color/primaryColor"
         android:orientation="horizontal"
-        android:padding="10dp"
+        android:padding="@dimen/paddingIcons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
 
         <Button
-            android:id="@+id/menuHamburguesa"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:id="@+id/menu"
+            android:layout_width="@dimen/iconMenuSize"
+            android:layout_height="@dimen/iconMenuSize"
             android:layout_gravity="start"
             android:background="@drawable/menu"
-            android:contentDescription="Menu" />
+            android:contentDescription="@string/menuText" />
 
         <Space
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_weight="1"></Space>
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/notification"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="@dimen/iconMenuSize"
+            android:layout_height="@dimen/iconMenuSize"
             android:background="@drawable/notification"
-            android:contentDescription="Notificaciones"
-            android:gravity="right" />
+            android:contentDescription="@string/notificationText"
+            android:gravity="end" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/infoUser"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="@dimen/heightHomeLayout"
         android:background="@drawable/border_card"
         android:orientation="vertical"
-        android:paddingLeft="25dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header">
@@ -56,20 +55,20 @@
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="Bienvenido, "
+            android:text="@string/welcomeText"
             android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:textSize="@dimen/textInfoSize" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="Saldo disponible"
+            android:text="@string/infoText"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="@dimen/textInfoSize"
             android:textStyle="normal" />
 
         <TextView
@@ -77,63 +76,166 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="$ 1.111,11"
+            android:text="@string/balanceText"
             android:textColor="@color/white"
-            android:textSize="34sp"
+            android:textSize="@dimen/balanceTextSize"
             android:textStyle="bold" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="100dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:orientation="vertical"
+        android:id="@+id/containerActivities"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/infoUser">
 
-        <Button
-            android:id="@+id/sendButton"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:layout_weight="0"
-            android:background="@drawable/enviar"
-            android:contentDescription="Enviar"
-            />
-
-        <TextView
-            android:id="@+id/sendButtonText"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="Enviar"
-            />
-
-        <Button
-            android:id="@+id/creditCard"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:layout_weight="0"
-            android:background="@drawable/creditcard_button"
-            android:contentDescription="Credit Card"
-            />
-
-        <TextView
-            android:id="@+id/creditCardText"
-            android:layout_width="wrap_content"
-            android:layout_height="10dp"
-            android:layout_weight="1"
-            android:text="Tarjeta de credito"
+        <LinearLayout
+            android:id="@+id/activities"
+            android:layout_width="@dimen/widthActivitiesLayout"
+            android:layout_height="@dimen/heightHomeLayout"
+            android:layout_marginTop="@dimen/marginActivitiesLayout"
             android:gravity="center"
-            />
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/sendButton"
+                android:layout_width="@dimen/iconActivitiesSize"
+                android:layout_height="@dimen/iconActivitiesSize"
+                android:layout_weight="0"
+                android:background="@drawable/send"
+                android:contentDescription="@string/activityDescription1" />
+
+            <TextView
+                android:id="@+id/sendButtonText"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/heightActivitiesText"
+                android:layout_weight="1"
+                android:paddingTop="@dimen/paddingIcons"
+                android:textColor="@color/black"
+                android:text="@string/activityText1" />
+
+            <Button
+                android:id="@+id/creditCard"
+                android:layout_width="@dimen/iconActivitiesSize"
+                android:layout_height="@dimen/iconActivitiesSize"
+                android:layout_weight="0"
+                android:background="@drawable/credit_card_button"
+                android:contentDescription="@string/activityDescription2" />
+
+            <TextView
+                android:id="@+id/creditCardText"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/heightActivitiesText"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:text="@string/activityText2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/activities2"
+            android:layout_width="@dimen/widthActivitiesLayout"
+            android:layout_height="@dimen/heightHomeLayout"
+            android:layout_marginTop="@dimen/marginActivitiesLayout"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/receiveButton"
+                android:layout_width="@dimen/iconActivitiesSize"
+                android:layout_height="@dimen/iconActivitiesSize"
+                android:layout_weight="0"
+                android:background="@drawable/receive"
+                android:contentDescription="@string/activityDescription3" />
+
+            <TextView
+                android:id="@+id/receiveButtonText"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/heightActivitiesText"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:paddingTop="@dimen/paddingIcons"
+                android:text="@string/activityText3" />
+
+            <Button
+                android:id="@+id/loansButton"
+                android:layout_width="@dimen/iconActivitiesSize"
+                android:layout_height="@dimen/iconActivitiesSize"
+                android:layout_weight="0"
+                android:background="@drawable/loans_button"
+                android:contentDescription="@string/activityDescription4" />
+
+            <TextView
+                android:id="@+id/loansButtonText"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/heightActivitiesText"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:paddingTop="@dimen/paddingIcons"
+                android:text="@string/activityText4" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/activities3"
+            android:layout_width="@dimen/widthActivitiesLayout"
+            android:layout_height="@dimen/heightHomeLayout"
+            android:layout_marginTop="@dimen/marginActivitiesLayout"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/transferButton"
+                android:layout_width="@dimen/iconActivitiesSize"
+                android:layout_height="@dimen/iconActivitiesSize"
+                android:layout_weight="0"
+                android:background="@drawable/transfer_button"
+                android:contentDescription="@string/activityDescription5" />
+
+            <TextView
+                android:id="@+id/transferButtonText"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/heightActivitiesText"
+                android:layout_weight="1"
+                android:paddingTop="@dimen/paddingIcons"
+                android:textColor="@color/black"
+                android:text="@string/activityText5" />
+
+            <Button
+                android:id="@+id/fixedButton"
+                android:layout_width="@dimen/iconActivitiesSize"
+                android:layout_height="@dimen/iconActivitiesSize"
+                android:layout_weight="0"
+                android:background="@drawable/fixed_button"
+                android:contentDescription="@string/activityDescription6" />
+
+            <TextView
+                android:id="@+id/fixedButtonText"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/heightActivitiesText"
+                android:layout_weight="1"
+                android:paddingTop="@dimen/paddingIcons"
+                android:textColor="@color/black"
+                android:text="@string/activityText6" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="16dp"></LinearLayout>
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartHome"
+        android:text="@string/transactionsText"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/containerActivities"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textInfoSize"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
