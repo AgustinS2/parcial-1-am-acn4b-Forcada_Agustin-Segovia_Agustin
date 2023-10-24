@@ -3,4 +3,24 @@
     <string name="loginText">Iniciar sesion</string>
     <string name="textRegister">Registrate</string>
     <string name="bankName">NOMBRE DEL BANCO</string>
+    <string name="welcomeText">Bienvenido</string>
+    <string name="infoText">Saldo disponible</string>
+    <string name="transactionsText">Transacciones Recientes</string>
+    <string name="activityText1">Enviar</string>
+    <string name="activityText2">Tarjeta de credito</string>
+    <string name="activityText3">Recibir</string>
+    <string name="activityText4">Prestamos</string>
+    <string name="activityText5">Transferencia</string>
+    <string name="activityText6">Plazo fijo</string>
+    <string name="activityDescription1">Enviar</string>
+    <string name="activityDescription2">Tarjeta de credito</string>
+    <string name="activityDescription3">Recibir</string>
+    <string name="activityDescription4">Prestamos</string>
+    <string name="activityDescription5">Transferencia</string>
+    <string name="activityDescription6">Plazo fijo</string>
+    <string name="balanceText">$ 1.111,11</string>
+    <string name="menuText">Menu</string>
+    <string name="notificationText">Notificaciones</string>
+    <string name="place_holder_password">Ingrese su contraseña</string>
+    <string name="place_holder_login">Ingrese su mail o Usuario</string>
 </resources>

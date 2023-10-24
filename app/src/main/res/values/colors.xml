@@ -4,6 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="primaryColor">#2D469A</color>
     <color name="secondColor">#6DA9E4</color>
-    <color name="inputColor">#700D5CBC</color>
-    <color name="fondoColor">#EFEFEF</color>
+    <color name="inputColor">#8CAED9</color>
+    <color name="backgroundColor">#EFEFEF</color>
 </resources>

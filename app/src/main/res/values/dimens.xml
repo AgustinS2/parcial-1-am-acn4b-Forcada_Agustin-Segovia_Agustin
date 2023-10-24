@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="iconMenuSize">48dp</dimen>
+    <dimen name="iconActivitiesSize">54dp</dimen>
+    <dimen name="paddingIcons">8dp</dimen>
+    <dimen name="heightActivitiesText">10dp</dimen>
+    <dimen name="widthActivitiesLayout">100dp</dimen>
+    <dimen name="heightHomeLayout">200dp</dimen>
+    <dimen name="marginActivitiesLayout">30dp</dimen>
+    <dimen name="textInfoSize">24sp</dimen>
+    <dimen name="balanceTextSize">34sp</dimen>
+    <dimen name="marginStartHome">32dp</dimen>
+</resources>
