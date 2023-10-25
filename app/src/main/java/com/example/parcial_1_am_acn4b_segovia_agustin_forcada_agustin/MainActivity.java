@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
         TextView usuario = findViewById(R.id.emailUsername);
         TextView passwordInput = findViewById(R.id.password);
-        TextView bank = findViewById(R.id.bankName);
 
+        Button register = findViewById(R.id.buttonRegister);
         Button ingreso = findViewById(R.id.buttonLogin);
         User agustin = new User("Agustin", "Segovia", "agus@gmail.com", "abc123", 22);
         User lucas = new User("Lucas", "Segovia", "lucas@gmail.com", "abc1234", 32);
@@ -50,6 +50,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void showErrorDialog()
