@@ -28,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
 
         TextView usuario = findViewById(R.id.emailUsername);
         TextView passwordInput = findViewById(R.id.password);
+        TextView bank = findViewById(R.id.bankName);
 
         Button ingreso = findViewById(R.id.buttonLogin);
-        Button register = findViewById(R.id.buttonRegister);
         User agustin = new User("Agustin", "Segovia", "agus@gmail.com", "abc123", 22);
         User lucas = new User("Lucas", "Segovia", "lucas@gmail.com", "abc1234", 32);
         List<User> listUser = new ArrayList<>();
@@ -47,14 +47,6 @@ public class MainActivity extends AppCompatActivity {
                     showErrorDialog();
                 }
 
-            }
-        });
-
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
-                startActivity(intent);
             }
         });
 
@@ -84,5 +76,33 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return false;
+    }
+
+    public class RegistroActivity extends AppCompatActivity {
+
+        private EditText usernameEditText;
+        private Button registerButton;
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_register);
+
+            usernameEditText = findViewById(R.id.editTextUsername);
+            registerButton = findViewById(R.id.buttonRegister);
+
+            registerButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String username = usernameEditText.getText().toString();
+                    if (!username.isEmpty()) {
+                        // Aquí puedes realizar alguna dinámica visual, por ejemplo, mostrar un mensaje de bienvenida
+                        Toast.makeText(RegistroActivity.this, "¡Bienvenido, " + username + "!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(RegistroActivity.this, "Por favor, ingresa un nombre de usuario", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
     }
 }
