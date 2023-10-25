@@ -2,7 +2,7 @@ package com.example.parcial_1_am_acn4b_segovia_agustin_forcada_agustin;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.os.Bundle;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.EditText;
 
 import com.google.android.material.button.MaterialButton;
 
@@ -75,5 +76,33 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return false;
+    }
+
+    public class RegistroActivity extends AppCompatActivity {
+
+        private EditText usernameEditText;
+        private Button registerButton;
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_register);
+
+            usernameEditText = findViewById(R.id.editTextUsername);
+            registerButton = findViewById(R.id.buttonRegister);
+
+            registerButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String username = usernameEditText.getText().toString();
+                    if (!username.isEmpty()) {
+                        // Aquí puedes realizar alguna dinámica visual, por ejemplo, mostrar un mensaje de bienvenida
+                        Toast.makeText(RegistroActivity.this, "¡Bienvenido, " + username + "!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(RegistroActivity.this, "Por favor, ingresa un nombre de usuario", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
     }
 }
