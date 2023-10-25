@@ -2,7 +2,7 @@
     <string name="app_name">parcial-1-am-acn4b-Segovia_Agustin-Forcada_Agustin</string>
     <string name="loginText">Iniciar sesion</string>
     <string name="textRegister">Registrate</string>
-    <string name="bankName">NOMBRE DEL BANCO</string>
+    <string name="bankName">BANCO DEL NORTE</string>
     <string name="welcomeText">Bienvenido</string>
     <string name="infoText">Saldo disponible</string>
     <string name="transactionsText">Transacciones Recientes</string>
