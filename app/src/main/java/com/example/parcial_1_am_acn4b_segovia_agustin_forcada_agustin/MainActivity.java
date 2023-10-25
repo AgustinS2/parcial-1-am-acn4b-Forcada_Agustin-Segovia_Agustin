@@ -13,6 +13,11 @@ import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import Modelo.User;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -21,22 +26,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         TextView usuario = findViewById(R.id.emailUsername);
-        TextView password = findViewById(R.id.password);
+        TextView passwordInput = findViewById(R.id.password);
+        TextView bank = findViewById(R.id.bankName);
 
         Button ingreso = findViewById(R.id.buttonLogin);
+        User agustin = new User("Agustin", "Segovia", "agus@gmail.com", "abc123", 22);
+        User lucas = new User("Lucas", "Segovia", "lucas@gmail.com", "abc1234", 32);
+        List<User> listUser = new ArrayList<>();
+        listUser.add(agustin);
+        listUser.add(lucas);
 
         ingreso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (usuario.getText().toString().toUpperCase().equals("AGUSTIN") && password.getText().toString().toUpperCase().equals("ABC123"))
-                {
+                if (login(usuario, passwordInput, listUser)) {
                     Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                     startActivity(intent);
-                }
-                else
-                {
+                } else {
                     showErrorDialog();
-
                 }
 
             }
@@ -58,5 +65,15 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
 
+    }
+
+    public boolean login(TextView user, TextView pass, List<User> users) {
+        for (User u : users) {
+            if ((user.getText().toString().toLowerCase().equals(u.getName().toLowerCase()) || user.getText().toString().toLowerCase().equals(u.getEmail().toLowerCase()))
+                    && pass.getText().toString().toLowerCase().equals(u.getPassword().toLowerCase())) {
+                return true;
+            }
+        }
+        return false;
     }
 }
