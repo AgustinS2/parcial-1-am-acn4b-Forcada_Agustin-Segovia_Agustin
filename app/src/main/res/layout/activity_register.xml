@@ -19,23 +19,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTexPasword"
+        android:id="@+id/editTextPassword"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="268dp"
-        android:hint="Contraseña"
-        android:inputType="text"
+        android:ems="10"
+        android:hint="Ingrese contraseña"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/editTextUsername" />
 
     <Button
         android:id="@+id/buttonRegister"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextUsername"
-        android:layout_marginTop="54dp"
+        android:layout_marginTop="56dp"
         android:text="Registrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
