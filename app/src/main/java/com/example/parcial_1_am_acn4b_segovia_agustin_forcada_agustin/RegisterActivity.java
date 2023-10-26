@@ -34,7 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
                     // Realiza la validación aquí (por ejemplo, verificando si el usuario y la contraseña son válidos)
                     if (username.equals("usuario_ejemplo") && password.equals("contraseña_ejemplo")) {
                         // Validación exitosa, redirige a HomeActivity
-                        Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
+                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                         startActivity(intent);
                     } else {
                         Toast.makeText(RegisterActivity.this, "Nombre de usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
