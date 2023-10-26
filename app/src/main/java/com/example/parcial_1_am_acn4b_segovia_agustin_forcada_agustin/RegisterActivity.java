@@ -22,7 +22,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         usernameEditText = findViewById(R.id.editTextUsername);
         registerButton = findViewById(R.id.buttonRegister);
-        passwordEditText = findViewById(R.id.editTextPassword);
+        passwordEditText = findViewById(R.id.editTexPasword);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,8 +31,14 @@ public class RegisterActivity extends AppCompatActivity {
                 String password = passwordEditText.getText().toString();
 
                 if (!username.isEmpty() && !password.isEmpty()) {
-                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                    // Realiza la validación aquí (por ejemplo, verificando si el usuario y la contraseña son válidos)
+                    if (username.equals("usuario_ejemplo") && password.equals("contraseña_ejemplo")) {
+                        // Validación exitosa, redirige a HomeActivity
+                        Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
                         startActivity(intent);
+                    } else {
+                        Toast.makeText(RegisterActivity.this, "Nombre de usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
                     Toast.makeText(RegisterActivity.this, "Por favor, ingresa un nombre de usuario y una contraseña", Toast.LENGTH_SHORT).show();
                 }
