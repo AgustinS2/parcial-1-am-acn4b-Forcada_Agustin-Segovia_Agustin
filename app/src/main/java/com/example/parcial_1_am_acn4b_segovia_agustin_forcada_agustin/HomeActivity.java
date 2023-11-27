@@ -18,12 +18,21 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        Button fixedTerm = findViewById(R.id.fixedButton);
         Button send_button = findViewById(R.id.sendButton);
 
         send_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, SendActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        fixedTerm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (HomeActivity.this, FixedTermActivity.class);
                 startActivity(intent);
             }
         });

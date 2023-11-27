@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryColor">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="@dimen/iconMenuSize"
+            android:layout_height="@dimen/iconMenuSize"
+            android:layout_marginStart="14sp"
+            android:background="@drawable/arrowleft"
+            android:contentDescription="@string/back_menu" />
+
+        <TextView
+            android:id="@+id/bankName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:paddingStart="60dp"
+            android:text="@string/bankName"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/border_card_top"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingStart="28sp"
+        android:paddingEnd="28sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        tools:layout_constraintTop_toBottomOf="@id/header">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/activityText6"
+            android:textColor="@color/black"
+            android:textSize="34sp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16sp"
+            android:text="Saldo actual:"
+            android:textColor="@color/black"
+            tools:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16sp"
+            android:text="Seleccionar cuenta:"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/selected_account"
+            android:layout_width="match_parent"
+            android:layout_height="48sp"
+            android:layout_marginTop="8sp"
+            android:background="@color/inputColor" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16sp"
+            android:text="@string/amount"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/amount"
+            android:layout_width="match_parent"
+            android:layout_height="48sp"
+            android:layout_marginTop="8sp"
+            android:background="@color/inputColor"
+            android:hint="Ingrese monto"
+            android:inputType="numberDecimal"
+            android:textColorHint="@color/black"
+            android:textStyle="bold"
+            android:padding="14sp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16sp"
+                android:text="Interes:"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/editTextText2"
+                android:layout_width="match_parent"
+                android:layout_height="48sp"
+                android:layout_marginStart="14sp"
+                android:layout_marginTop="8sp"
+                android:autofillHints="text"
+                android:background="@color/inputColor"
+                android:ems="10"
+                android:inputType="text"
+                android:text="7.3%"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:padding="14sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16sp"
+            android:text="Monto por intereses generados:"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/interes_generated"
+            android:layout_width="match_parent"
+            android:layout_height="48sp"
+            android:layout_marginTop="8sp"
+            android:autofillHints="number"
+            android:background="@color/inputColor"
+            android:ems="10"
+            android:inputType="number"
+            android:padding="14sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16sp"
+            android:text="Monto total:"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/amount_total"
+            android:layout_width="match_parent"
+            android:layout_height="48sp"
+            android:layout_marginTop="8sp"
+            android:autofillHints="number"
+            android:background="@color/inputColor"
+            android:ems="10"
+            android:inputType="number"
+            android:padding="14sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/simulate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28sp"
+                android:background="@drawable/border_card_total"
+                android:gravity="center"
+                android:backgroundTint="@color/secondColor"
+                android:text="Simular"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28sp"
+                android:background="@drawable/border_card_total"
+                android:gravity="center"
+                android:text="Realizar"
+                android:textColor="@color/white"
+                android:layout_marginStart="48sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
