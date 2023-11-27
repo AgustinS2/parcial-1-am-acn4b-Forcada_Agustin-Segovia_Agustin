@@ -34,6 +34,8 @@
         </activity>
         <activity android:name=".CreditCardActivity">
         </activity>
+        <activity android:name=".LoansActivity">
+        </activity>
 
     </application>
 

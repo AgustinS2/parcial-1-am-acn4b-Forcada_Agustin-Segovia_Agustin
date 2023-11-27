@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryColor">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="@dimen/iconMenuSize"
+            android:layout_height="@dimen/iconMenuSize"
+            android:layout_marginStart="14sp"
+            android:background="@drawable/arrowleft"
+            android:contentDescription="@string/back_menu" />
+
+        <TextView
+            android:id="@+id/bankName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:paddingStart="60dp"
+            android:text="@string/bankName"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/border_card_top"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingStart="28sp"
+        android:paddingEnd="28sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Prestamos"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12sp"
+            android:text="Seleccione el prestamo que desea recibir:"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true">
+
+            <RadioButton
+                android:id="@+id/radioButtonOption1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" $100.000 - 12 c/$12,000 - 44% int"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="8sp"/>
+            <RadioButton
+                android:id="@+id/radioButtonOption2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" $200.000 - 12 c/$27.000 - 62% int"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="8sp"/>
+            <RadioButton
+                android:id="@+id/radioButtonOption3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" $300.000 - 12 c/$43.000 - 72% int"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="8sp"/>
+            <RadioButton
+                android:id="@+id/radioButtonOption4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" $500.000 - 12 c/$75.000 - 80% int"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="8sp"/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80sp"
+            android:background="@drawable/border_card_total"
+            android:gravity="center"
+            android:text="Confirmar"
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
