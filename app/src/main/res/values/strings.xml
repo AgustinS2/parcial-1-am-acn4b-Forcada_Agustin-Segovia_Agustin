@@ -32,4 +32,16 @@
     <string name="priceTransaction1">$15220</string>
     <string name="infoTransaction1">Pago realizado</string>
     <string name="descriptionTransaction1">Icono de transaccion 1</string>
+    <string name="back_menu">Volver</string>
+    <string name="send_button">Enviar</string>
+    <string name="add_amount">Ingrese monto</string>
+    <string name="amount">Monto</string>
+    <string name="reference_text">Mensaje de referencia</string>
+    <string name="reason">Motivo</string>
+    <string name="add_reference_text">Ingrese mensaje de referencia</string>
+    <string name="select_reason">Seleccione motivo</string>
+    <string name="select_account_destination">Seleccione cuenta de destino</string>
+    <string name="select_account_destination_text">Seleccionar cuenta de destino</string>
+    <string name="select_account_send">Seleccione cuenta de envio</string>
+    <string name="select_account_send_text">Seleccionar cuenta de envio</string>
 </resources>
