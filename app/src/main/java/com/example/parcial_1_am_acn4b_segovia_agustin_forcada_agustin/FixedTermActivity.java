@@ -1,5 +1,6 @@
 package com.example.parcial_1_am_acn4b_segovia_agustin_forcada_agustin;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -20,6 +21,7 @@ public class FixedTermActivity extends AppCompatActivity {
 
         Button simular = findViewById(R.id.simulate);
         EditText amount = findViewById(R.id.amount);
+        Button button_back = findViewById(R.id.button_back);
 
         TextView intereses_generates = findViewById(R.id.interes_generated);
         TextView amount_total = findViewById(R.id.amount_total);
@@ -29,6 +31,13 @@ public class FixedTermActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter_selected_account = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, opciones_selected_account);
         spinner_account_selected.setAdapter(adapter_selected_account);
 
+        button_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FixedTermActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
         simular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,9 +54,6 @@ public class FixedTermActivity extends AppCompatActivity {
                     intereses_generates.setText(String.valueOf(intereses_totales));
                     amount_total.setText(String.valueOf(monto_total));
                 }
-
-
-
 
             }
         });
