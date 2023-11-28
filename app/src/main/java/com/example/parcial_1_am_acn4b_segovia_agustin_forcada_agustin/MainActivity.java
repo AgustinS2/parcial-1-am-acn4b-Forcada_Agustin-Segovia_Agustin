@@ -14,9 +14,12 @@ import android.widget.EditText;
 
 import com.google.android.material.button.MaterialButton;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import Modelo.Account;
+import Modelo.CreditCard;
 import Modelo.User;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,11 +31,22 @@ public class MainActivity extends AppCompatActivity {
 
         TextView usuario = findViewById(R.id.emailUsername);
         TextView passwordInput = findViewById(R.id.password);
+        Account account1 = new Account ();
+        Account account2 = new Account ();
+        CreditCard creditCard1 = new CreditCard("Visa", "Nueva", 26450, 23123342, 234234556);
+        CreditCard creditCard2 = new CreditCard("Visa", "Nueva", 26450, 2123123, 12342423);
+        CreditCard creditCard3 = new CreditCard("Visa", "Nueva", 10000, 2123123, 12342423);
+        CreditCard creditCard4 = new CreditCard("Visa", "Nueva", 14000, 2123123, 12342423);
+        account1.addCreditCard(creditCard1);
+        account1.addCreditCard(creditCard2);
+        account2.addCreditCard(creditCard3);
+        account2.addCreditCard(creditCard4);
+
 
         Button register = findViewById(R.id.buttonRegister);
         Button ingreso = findViewById(R.id.buttonLogin);
-        User agustin = new User("Agustin", "Segovia", "agus@gmail.com", "abc123", 22);
-        User lucas = new User("Lucas", "Segovia", "lucas@gmail.com", "abc1234", 32);
+        User agustin = new User("Agustin", "Segovia", "agus@gmail.com", "abc123", 22, account1);
+        User lucas = new User("Lucas", "Segovia", "lucas@gmail.com", "abc1234", 32, account2);
         List<User> listUser = new ArrayList<>();
         listUser.add(agustin);
         listUser.add(lucas);
@@ -40,12 +54,7 @@ public class MainActivity extends AppCompatActivity {
         ingreso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (login(usuario, passwordInput, listUser)) {
-                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                    startActivity(intent);
-                } else {
-                    showErrorDialog();
-                }
+                login(usuario,passwordInput,listUser);
 
             }
         });
@@ -53,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
@@ -79,9 +89,13 @@ public class MainActivity extends AppCompatActivity {
         for (User u : users) {
             if ((user.getText().toString().toLowerCase().equals(u.getName().toLowerCase()) || user.getText().toString().toLowerCase().equals(u.getEmail().toLowerCase()))
                     && pass.getText().toString().toLowerCase().equals(u.getPassword().toLowerCase())) {
+                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                intent.putExtra("usuario", u);
+                startActivity(intent);
                 return true;
             }
         }
+        showErrorDialog();
         return false;
     }
 

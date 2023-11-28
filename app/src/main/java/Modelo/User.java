@@ -8,21 +8,24 @@ import com.example.parcial_1_am_acn4b_segovia_agustin_forcada_agustin.MainActivi
 
 import org.w3c.dom.Text;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class User {
+public class User implements Serializable {
     private String name;
     private String surname;
     private String email;
     private String password;
     private int age;
+    private Account account;
 
-    public User(String name, String surname, String email, String password, int age) {
+    public User(String name, String surname, String email, String password, int age, Account account) {
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.password = password;
         this.age = age;
+        this.account = account;
     }
 
     // Métodos getters y setters
@@ -61,15 +64,7 @@ public class User {
         this.age = age;
     }
 
-    public boolean login(TextView user, TextView pass, List<User> users) {
-        for (User u : users) {
-            if ((user.getText().toString().toLowerCase().equals(u.getName().toLowerCase()) || user.getText().toString().toLowerCase().equals(u.getEmail().toLowerCase()))
-                    && pass.getText().toString().toLowerCase().equals(u.getPassword().toLowerCase())) {
-                return true;
-            }
-        }
-        return false;
-    }
+   public Account getAccount() { return account;}
 
 
 }
