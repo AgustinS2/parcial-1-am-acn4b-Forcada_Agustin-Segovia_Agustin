@@ -18,12 +18,12 @@
 
 
         <Button
-            android:id="@+id/menu"
+            android:id="@+id/close"
             android:layout_width="@dimen/iconMenuSize"
             android:layout_height="@dimen/iconMenuSize"
             android:layout_gravity="start"
-            android:background="@drawable/menu"
-            android:contentDescription="@string/menuText" />
+            android:background="@drawable/baseline_clear_24"
+            android:contentDescription="@string/closeText" />
 
         <Space
             android:layout_width="0dp"

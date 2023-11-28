@@ -24,6 +24,7 @@ public class HomeActivity extends AppCompatActivity {
         Button credit_button = findViewById(R.id.creditCard);
         Button transaction_button = findViewById(R.id.transferButton);
         Button receive_button = findViewById(R.id.receiveButton);
+        Button close = findViewById(R.id.close);
 
 
         Intent intent = getIntent();
@@ -53,7 +54,13 @@ public class HomeActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
-
+            close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+            });
             fixedTerm.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

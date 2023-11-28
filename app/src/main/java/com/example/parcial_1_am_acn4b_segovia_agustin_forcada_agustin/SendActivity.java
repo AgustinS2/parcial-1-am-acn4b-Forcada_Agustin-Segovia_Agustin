@@ -9,6 +9,8 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import Modelo.User;
+
 public class SendActivity extends AppCompatActivity {
 
     @Override
@@ -22,8 +24,10 @@ public class SendActivity extends AppCompatActivity {
         Spinner spinner_reason = findViewById(R.id.reason);
         Button button_back = findViewById(R.id.button_back);
 
+        User usuario_actual = (User) getIntent().getSerializableExtra("usuario");
+
         String[] opciones_send = {"Selecciones una cuenta de envio agendada", "Cuenta de Melina", "Cuenta de Joaquin", "Cuenta de Marcos"};
-        String[] opciones_destination = {"Selecciones una cuenta de destino", "Cuenta de Agustin 24543A", "Cuenta de Agustin 38294B", "Caja de Ahorro"};
+        String[] opciones_destination = {"Selecciones una cuenta de destino", String.valueOf(usuario_actual.getAccount().getCreditCards().get(0).getNumero_cuenta()), String.valueOf(usuario_actual.getAccount().getCreditCards().get(1).getNumero_cuenta())};
         String[] opciones_reason = {"Seleccione un motivo", "Alquileres", "Honorarios", "Donaciones", "Varios"};
         ArrayAdapter<String> adapter_send = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, opciones_send);
         spinner_account_send.setAdapter(adapter_send);

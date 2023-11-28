@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.w3c.dom.Text;
 
+import Modelo.User;
+
 public class FixedTermActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -26,8 +28,11 @@ public class FixedTermActivity extends AppCompatActivity {
         TextView intereses_generates = findViewById(R.id.interes_generated);
         TextView amount_total = findViewById(R.id.amount_total);
 
+        User usuario_actual = (User) getIntent().getSerializableExtra("usuario");
+
+
         Spinner spinner_account_selected = findViewById(R.id.selected_account);
-        String[] opciones_selected_account = {"Seleccione una cuenta", "Cuenta de Agustin 24543A", "Cuenta de Agustin 38294B", "Caja de Ahorro"};
+        String[] opciones_selected_account = {"Seleccione una cuenta", String.valueOf(usuario_actual.getAccount().getCreditCards().get(0).getNumero_cuenta()), String.valueOf(usuario_actual.getAccount().getCreditCards().get(1).getNumero_cuenta())};
         ArrayAdapter<String> adapter_selected_account = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, opciones_selected_account);
         spinner_account_selected.setAdapter(adapter_selected_account);
 

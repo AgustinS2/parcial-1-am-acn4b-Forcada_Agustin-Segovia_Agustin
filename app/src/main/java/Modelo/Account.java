@@ -35,6 +35,9 @@ public class Account implements Serializable {
 
     }
 
+    public int getCbu() {return cbu;}
+    public String getAlias() {return alias;}
+
     public List<CreditCard> getCreditCards(){return creditCards;}
 
 

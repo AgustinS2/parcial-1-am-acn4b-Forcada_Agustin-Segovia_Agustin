@@ -19,7 +19,7 @@
     <string name="activityDescription5">Transferencia Icono</string>
     <string name="activityDescription6">Plazo fijo Icono</string>
     <string name="balanceText">$</string>
-    <string name="menuText">Menu</string>
+    <string name="closeText">Cerrar sesion</string>
     <string name="notificationText">Notificaciones</string>
     <string name="place_holder_password">Ingrese su contraseña</string>
     <string name="place_holder_login">Ingrese su mail o Usuario</string>
