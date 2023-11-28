@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryColor">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="@dimen/iconMenuSize"
+            android:layout_height="@dimen/iconMenuSize"
+            android:layout_marginStart="14sp"
+            android:background="@drawable/arrowleft"
+            android:contentDescription="@string/back_menu" />
+
+        <TextView
+            android:id="@+id/bankName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:paddingStart="60dp"
+            android:text="@string/bankName"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/border_card_top"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingEnd="28sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/activityText5"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginStartHome"
+            android:layout_marginTop="24sp"
+            android:text="@string/transactionsText"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textInfoSize"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginTransaction"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/iconTransaction1"
+                android:layout_width="@dimen/dimensionTransaction"
+                android:layout_height="@dimen/dimensionTransaction"
+                android:layout_weight="0"
+                android:background="@drawable/check_circle"
+                android:contentDescription="@string/descriptionTransaction1" />
+
+            <TextView
+                android:id="@+id/infoTransaction1"
+                android:layout_width="@dimen/dimensionTextTransaction"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/paddingTransaction"
+                android:paddingEnd="0dp"
+                android:text="@string/infoTransaction1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/transactionText"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/priceTransaction1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/paddingTransaction"
+                android:paddingEnd="0dp"
+                android:text="@string/priceTransaction1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/transactionText"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginTransaction"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/iconTransaction2"
+                android:layout_width="@dimen/dimensionTransaction"
+                android:layout_height="@dimen/dimensionTransaction"
+                android:layout_weight="0"
+                android:background="@drawable/pay"
+                android:contentDescription="@string/descriptionTransaction" />
+
+            <TextView
+                android:id="@+id/infoTransaction2"
+                android:layout_width="@dimen/dimensionTextTransaction"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/paddingTransaction"
+                android:paddingEnd="0dp"
+                android:text="@string/infoTransaction2"
+                android:textColor="@color/black"
+                android:textSize="@dimen/transactionText"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/priceTransaction2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/paddingTransaction"
+                android:paddingEnd="0dp"
+                android:text="@string/priceTransaction2"
+                android:textColor="@color/black"
+                android:textSize="@dimen/transactionText"
+                android:textStyle="bold"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginTransaction"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/iconTransaction3"
+                android:layout_width="@dimen/dimensionTransaction"
+                android:layout_height="@dimen/dimensionTransaction"
+                android:layout_weight="0"
+                android:background="@drawable/shop"
+                android:contentDescription="@string/descriptionTransaction3" />
+
+            <TextView
+                android:id="@+id/infoTransaction3"
+                android:layout_width="@dimen/dimensionTextTransaction"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/paddingTransaction"
+                android:paddingEnd="0dp"
+                android:text="@string/infoTransaction3"
+                android:textColor="@color/black"
+                android:textSize="@dimen/transactionText"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/priceTransaction3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/paddingTransaction"
+                android:paddingEnd="0dp"
+                android:text="@string/priceTransaction3"
+                android:textColor="@color/black"
+                android:textSize="@dimen/transactionText"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginTransaction"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/iconTransaction4"
+                android:layout_width="@dimen/dimensionTransaction"
+                android:layout_height="@dimen/dimensionTransaction"
+                android:layout_weight="0"
+                android:background="@drawable/check_circle"
+                android:contentDescription="@string/descriptionTransaction1" />
+
+            <TextView
+                android:id="@+id/infoTransaction4"
+                android:layout_width="@dimen/dimensionTextTransaction"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/paddingTransaction"
+                android:paddingEnd="0dp"
+                android:text="@string/infoTransaction1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/transactionText"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/priceTransaction4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/paddingTransaction"
+                android:paddingEnd="0dp"
+                android:text="@string/priceTransaction1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/transactionText"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginTransaction"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/iconTransaction5"
+                android:layout_width="@dimen/dimensionTransaction"
+                android:layout_height="@dimen/dimensionTransaction"
+                android:layout_weight="0"
+                android:background="@drawable/pay"
+                android:contentDescription="@string/descriptionTransaction" />
+
+            <TextView
+                android:id="@+id/infoTransaction5"
+                android:layout_width="@dimen/dimensionTextTransaction"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/paddingTransaction"
+                android:paddingEnd="0dp"
+                android:text="@string/infoTransaction2"
+                android:textColor="@color/black"
+                android:textSize="@dimen/transactionText"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/priceTransaction5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/paddingTransaction"
+                android:paddingEnd="0dp"
+                android:text="@string/priceTransaction2"
+                android:textColor="@color/black"
+                android:textSize="@dimen/transactionText"
+                android:textStyle="bold"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginTransaction"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/iconTransaction6"
+                android:layout_width="@dimen/dimensionTransaction"
+                android:layout_height="@dimen/dimensionTransaction"
+                android:layout_weight="0"
+                android:background="@drawable/shop"
+                android:contentDescription="@string/descriptionTransaction3" />
+
+            <TextView
+                android:id="@+id/infoTransaction6"
+                android:layout_width="@dimen/dimensionTextTransaction"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/paddingTransaction"
+                android:paddingEnd="0dp"
+                android:text="@string/infoTransaction3"
+                android:textColor="@color/black"
+                android:textSize="@dimen/transactionText"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/priceTransaction6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/paddingTransaction"
+                android:paddingEnd="0dp"
+                android:text="@string/priceTransaction3"
+                android:textColor="@color/black"
+                android:textSize="@dimen/transactionText"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginTransaction"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/iconTransaction7"
+                android:layout_width="@dimen/dimensionTransaction"
+                android:layout_height="@dimen/dimensionTransaction"
+                android:layout_weight="0"
+                android:background="@drawable/check_circle"
+                android:contentDescription="@string/descriptionTransaction1" />
+
+            <TextView
+                android:id="@+id/infoTransaction7"
+                android:layout_width="@dimen/dimensionTextTransaction"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/paddingTransaction"
+                android:paddingEnd="0dp"
+                android:text="@string/infoTransaction1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/transactionText"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/priceTransaction7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/paddingTransaction"
+                android:paddingEnd="0dp"
+                android:text="@string/priceTransaction1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/transactionText"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginTransaction"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/iconTransaction8"
+                android:layout_width="@dimen/dimensionTransaction"
+                android:layout_height="@dimen/dimensionTransaction"
+                android:layout_weight="0"
+                android:background="@drawable/pay"
+                android:contentDescription="@string/descriptionTransaction" />
+
+            <TextView
+                android:id="@+id/infoTransaction8"
+                android:layout_width="@dimen/dimensionTextTransaction"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/paddingTransaction"
+                android:paddingEnd="0dp"
+                android:text="@string/infoTransaction2"
+                android:textColor="@color/black"
+                android:textSize="@dimen/transactionText"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/priceTransaction8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/paddingTransaction"
+                android:paddingEnd="0dp"
+                android:text="@string/priceTransaction2"
+                android:textColor="@color/black"
+                android:textSize="@dimen/transactionText"
+                android:textStyle="bold"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginTransaction"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/iconTransaction9"
+                android:layout_width="@dimen/dimensionTransaction"
+                android:layout_height="@dimen/dimensionTransaction"
+                android:layout_weight="0"
+                android:background="@drawable/shop"
+                android:contentDescription="@string/descriptionTransaction3" />
+
+            <TextView
+                android:id="@+id/infoTransaction9"
+                android:layout_width="@dimen/dimensionTextTransaction"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/paddingTransaction"
+                android:paddingEnd="0dp"
+                android:text="@string/infoTransaction3"
+                android:textColor="@color/black"
+                android:textSize="@dimen/transactionText"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/priceTransaction9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/paddingTransaction"
+                android:paddingEnd="0dp"
+                android:text="@string/priceTransaction3"
+                android:textColor="@color/black"
+                android:textSize="@dimen/transactionText"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
