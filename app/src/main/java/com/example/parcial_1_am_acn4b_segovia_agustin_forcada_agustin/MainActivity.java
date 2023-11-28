@@ -31,10 +31,10 @@ public class MainActivity extends AppCompatActivity {
 
         TextView usuario = findViewById(R.id.emailUsername);
         TextView passwordInput = findViewById(R.id.password);
-        Account account1 = new Account ();
-        Account account2 = new Account ();
+        Account account1 = new Account (143244435, "banco.norte.acc1");
+        Account account2 = new Account (34223424, "banco.norte.acc2");
         CreditCard creditCard1 = new CreditCard("Visa", "Nueva", 26450, 23123342, 234234556);
-        CreditCard creditCard2 = new CreditCard("Visa", "Nueva", 26450, 2123123, 12342423);
+        CreditCard creditCard2 = new CreditCard("Mastercard", "Nueva", 26450, 2123123, 12342423);
         CreditCard creditCard3 = new CreditCard("Visa", "Nueva", 10000, 2123123, 12342423);
         CreditCard creditCard4 = new CreditCard("Visa", "Nueva", 14000, 2123123, 12342423);
         account1.addCreditCard(creditCard1);

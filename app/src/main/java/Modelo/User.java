@@ -37,7 +37,7 @@ public class User implements Serializable {
         this.name = name;
     }
     public String getSurname() {
-        return name;
+        return surname;
     }
 
     public void setSuname(String surname) {

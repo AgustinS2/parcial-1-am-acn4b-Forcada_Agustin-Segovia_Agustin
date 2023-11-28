@@ -1,12 +1,10 @@
 package com.example.parcial_1_am_acn4b_segovia_agustin_forcada_agustin;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.NumberFormat;
@@ -35,11 +33,15 @@ public class HomeActivity extends AppCompatActivity {
             // Verificar si el objeto Usuario no es nulo
             if (usuario_actual != null) {
                 // Acceder a los datos del usuario y mostrarlos en el TextView
-                TextView textView = findViewById(R.id.textView4);
-                String texto_actual = textView.getText().toString();
+                TextView balance_text = findViewById(R.id.textBalance);
+                String texto_actual = balance_text.getText().toString();
                 String balance_format = NumberFormat.getNumberInstance().format(usuario_actual.getAccount().getBalance());
                 String texto = texto_actual + " " + balance_format;
-                textView.setText(texto);
+                balance_text.setText(texto);
+
+                TextView welcomeText = findViewById(R.id.textWelcome);
+                String texto_welcome = welcomeText.getText().toString() + " " + usuario_actual.getName() + " " + usuario_actual.getSurname();
+                welcomeText.setText(texto_welcome);
             }
 
 
@@ -47,6 +49,7 @@ public class HomeActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(HomeActivity.this, SendActivity.class);
+                    intent.putExtra("usuario",usuario_actual);
                     startActivity(intent);
                 }
             });
@@ -55,6 +58,7 @@ public class HomeActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(HomeActivity.this, FixedTermActivity.class);
+                    intent.putExtra("usuario",usuario_actual);
                     startActivity(intent);
                 }
             });
@@ -62,6 +66,7 @@ public class HomeActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(HomeActivity.this, LoansActivity.class);
+                    intent.putExtra("usuario",usuario_actual);
                     startActivity(intent);
                 }
             });
@@ -69,6 +74,7 @@ public class HomeActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(HomeActivity.this, CreditCardActivity.class);
+                    intent.putExtra("usuario",usuario_actual);
                     startActivity(intent);
                 }
             });
@@ -84,6 +90,7 @@ public class HomeActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(HomeActivity.this, ReceiveActivity.class);
+                    intent.putExtra("usuario",usuario_actual);
                     startActivity(intent);
                 }
             });

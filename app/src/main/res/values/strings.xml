@@ -3,14 +3,14 @@
     <string name="loginText">Iniciar sesion</string>
     <string name="textRegister">Registrate</string>
     <string name="bankName">BANCO DEL NORTE</string>
-    <string name="welcomeText">Bienvenido</string>
+    <string name="welcomeText">Bienvenido,</string>
     <string name="infoText">Saldo disponible</string>
     <string name="transactionsText">Transacciones Recientes</string>
     <string name="activityText1">Enviar</string>
-    <string name="activityText2">Tarjeta de credito</string>
+    <string name="activityText2">Tarjetas</string>
     <string name="activityText3">Recibir</string>
     <string name="activityText4">Prestamos</string>
-    <string name="activityText5">Transferencia</string>
+    <string name="activityText5">Transacciones</string>
     <string name="activityText6">Plazo fijo</string>
     <string name="activityDescription1">Enviar Icono</string>
     <string name="activityDescription2">Tarjeta de credito Icono</string>

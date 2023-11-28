@@ -6,9 +6,13 @@ import java.util.List;
 
 public class Account implements Serializable {
     private double balance = 0;
+    private int cbu;
+    private String alias;
     private List<CreditCard> creditCards;
 
-    public Account () {
+    public Account (int cbu, String alias) {
+        this.cbu = cbu;
+        this.alias = alias;
         creditCards = new ArrayList<>();
     }
 
@@ -30,6 +34,8 @@ public class Account implements Serializable {
         balance = balance_total;
 
     }
+
+    public List<CreditCard> getCreditCards(){return creditCards;}
 
 
 }
