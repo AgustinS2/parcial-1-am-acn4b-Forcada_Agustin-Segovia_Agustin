@@ -30,14 +30,15 @@
         </activity>
         <activity android:name=".FixedTermActivity">
         </activity>
-        <activity android:name=".ReceiveActivity">
+        <activity android:name=".LoansActivity">
         </activity>
         <activity android:name=".CreditCardActivity">
         </activity>
-        <activity android:name=".LoansActivity">
-        </activity>
         <activity android:name=".TransactionActivity">
         </activity>
+        <activity android:name=".ReceiveActivity">
+        </activity>
+
 
     </application>
 

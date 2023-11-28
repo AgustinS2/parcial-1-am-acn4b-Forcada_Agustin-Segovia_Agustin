@@ -20,6 +20,10 @@ public class HomeActivity extends AppCompatActivity {
 
         Button fixedTerm = findViewById(R.id.fixedButton);
         Button send_button = findViewById(R.id.sendButton);
+        Button loans_button = findViewById(R.id.loansButton);
+        Button credit_button = findViewById(R.id.creditCard);
+        Button transaction_button = findViewById(R.id.transferButton);
+        Button receive_button = findViewById(R.id.receiveButton);
 
         send_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +37,35 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent (HomeActivity.this, FixedTermActivity.class);
+                startActivity(intent);
+            }
+        });
+        loans_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (HomeActivity.this, LoansActivity.class);
+                startActivity(intent);
+            }
+        });
+        credit_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (HomeActivity.this, CreditCardActivity.class);
+                startActivity(intent);
+            }
+        });
+        transaction_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (HomeActivity.this, TransactionActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        receive_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (HomeActivity.this, ReceiveActivity.class);
                 startActivity(intent);
             }
         });
