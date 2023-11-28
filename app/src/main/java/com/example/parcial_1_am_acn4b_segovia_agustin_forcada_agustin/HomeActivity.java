@@ -33,7 +33,7 @@ public class HomeActivity extends AppCompatActivity {
 
             // Verificar si el objeto Usuario no es nulo
             if (usuario_actual != null) {
-                // Acceder a los datos del usuario y mostrarlos en el TextView
+                // Acceder a los datos del usuario
                 TextView balance_text = findViewById(R.id.textBalance);
                 String texto_actual = balance_text.getText().toString();
                 String balance_format = NumberFormat.getNumberInstance().format(usuario_actual.getAccount().getBalance());

@@ -9,33 +9,42 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class RegisterActivity extends AppCompatActivity {
-    private EditText usernameEditText;
-    private EditText passwordEditText;
+import Modelo.User;
 
-    private Button registerButton;
+public class RegisterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        usernameEditText = findViewById(R.id.editTextUsername);
-        registerButton = findViewById(R.id.buttonRegister);
-        passwordEditText = findViewById(R.id.editTextPassword);
+        EditText email_register = findViewById(R.id.email);
+        EditText password = findViewById(R.id.password_account);
+        EditText nombre = findViewById(R.id.name);
+        EditText apellido = findViewById(R.id.surname);
+        EditText edad = findViewById(R.id.age);
 
-        registerButton.setOnClickListener(new View.OnClickListener() {
+        Button registrarse = findViewById(R.id.registerButton);
+
+
+        registrarse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = usernameEditText.getText().toString();
-                String password = passwordEditText.getText().toString();
+                String email = email_register.getText().toString();
+                String pass = password.getText().toString();
+                String name = nombre.getText().toString();
+                String surname = apellido.getText().toString();
+                String age = edad.getText().toString();
 
-                if (!username.isEmpty() && !password.isEmpty()) {
-                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                        startActivity(intent);
+                if (!email.isEmpty() && !pass.isEmpty() && !name.isEmpty() && !surname.isEmpty() && !age.isEmpty()) {
+                    int edad_user = Integer.parseInt(age);
+                    User usuario_nuevo = new User(name,surname,email,pass,edad_user);
+                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                    intent.putExtra("usuarionuevo", usuario_nuevo);
+                    startActivity(intent);
 
                 } else {
-                    Toast.makeText(RegisterActivity.this, "Por favor, ingresa un nombre de usuario y una contraseña", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
                 }
             }
         });

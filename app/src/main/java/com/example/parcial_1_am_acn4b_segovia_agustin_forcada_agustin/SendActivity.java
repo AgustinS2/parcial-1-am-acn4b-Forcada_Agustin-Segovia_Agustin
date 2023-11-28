@@ -27,7 +27,14 @@ public class SendActivity extends AppCompatActivity {
         User usuario_actual = (User) getIntent().getSerializableExtra("usuario");
 
         String[] opciones_send = {"Selecciones una cuenta de envio agendada", "Cuenta de Melina", "Cuenta de Joaquin", "Cuenta de Marcos"};
-        String[] opciones_destination = {"Selecciones una cuenta de destino", String.valueOf(usuario_actual.getAccount().getCreditCards().get(0).getNumero_cuenta()), String.valueOf(usuario_actual.getAccount().getCreditCards().get(1).getNumero_cuenta())};
+        String[] opciones_destination;
+        if (!usuario_actual.getAccount().getCreditCards().isEmpty()){
+            opciones_destination = new String[] {"Selecciones una cuenta de destino", String.valueOf(usuario_actual.getAccount().getCreditCards().get(0).getNumero_cuenta()), String.valueOf(usuario_actual.getAccount().getCreditCards().get(1).getNumero_cuenta())};
+        }
+        else {
+            opciones_destination = new String[] {"No hay cuentas de destino, es una cuenta nueva"};
+        }
+
         String[] opciones_reason = {"Seleccione un motivo", "Alquileres", "Honorarios", "Donaciones", "Varios"};
         ArrayAdapter<String> adapter_send = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, opciones_send);
         spinner_account_send.setAdapter(adapter_send);

@@ -23,6 +23,7 @@ public class ReceiveActivity extends AppCompatActivity {
         TextView cbu = findViewById(R.id.cbu);
         TextView amount_total = findViewById(R.id.amount_total);
 
+
         String textAlias = usuario_actual.getAccount().getAlias();
         alias.setText(textAlias);
 

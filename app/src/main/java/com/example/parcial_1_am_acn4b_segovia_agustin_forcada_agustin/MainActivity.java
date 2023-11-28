@@ -8,12 +8,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.EditText;
 
 import com.google.android.material.button.MaterialButton;
 
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +53,19 @@ public class MainActivity extends AppCompatActivity {
         listUser.add(agustin);
         listUser.add(lucas);
 
+
+        Intent intent = getIntent();
+        if (intent != null) {
+            User usuario_nuevo = (User) getIntent().getSerializableExtra("usuarionuevo");
+
+            // Verificar si el objeto Usuario no es nulo
+            if (usuario_nuevo != null) {
+                // Acceder a los datos del usuario
+                listUser.add(usuario_nuevo);
+            }
+        }
+
+
         ingreso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
 
     }
+
 
     public boolean login(TextView user, TextView pass, List<User> users) {
         for (User u : users) {
