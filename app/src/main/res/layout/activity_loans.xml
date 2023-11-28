@@ -50,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Prestamos"
+            android:text="@string/loans"
             android:textColor="@color/black"
             android:textSize="34sp"
             android:textStyle="bold" />
@@ -60,48 +60,50 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12sp"
-            android:text="Seleccione el prestamo que desea recibir:"
+            android:text="@string/select_loans"
             android:textColor="@color/black"
             android:textStyle="bold" />
         <RadioGroup
             android:id="@+id/radioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true">
+            >
 
             <RadioButton
                 android:id="@+id/radioButtonOption1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" $100.000 - 12 c/$12,000 - 44% int"
-                android:textStyle="bold"
+                android:layout_height="48dp"
+                android:layout_marginTop="8sp"
+                android:text="@string/option1Loans"
                 android:textSize="20sp"
-                android:layout_marginTop="8sp"/>
+                android:textStyle="bold" />
+
             <RadioButton
                 android:id="@+id/radioButtonOption2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" $200.000 - 12 c/$27.000 - 62% int"
-                android:textStyle="bold"
+                android:layout_height="48dp"
+                android:layout_marginTop="8sp"
+                android:text="@string/option2Loans"
                 android:textSize="20sp"
-                android:layout_marginTop="8sp"/>
+                android:textStyle="bold" />
+
             <RadioButton
                 android:id="@+id/radioButtonOption3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" $300.000 - 12 c/$43.000 - 72% int"
-                android:textStyle="bold"
+                android:layout_height="48dp"
+                android:layout_marginTop="8sp"
+                android:text="@string/option3Loans"
                 android:textSize="20sp"
-                android:layout_marginTop="8sp"/>
+                android:textStyle="bold" />
+
             <RadioButton
                 android:id="@+id/radioButtonOption4"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" $500.000 - 12 c/$75.000 - 80% int"
-                android:textStyle="bold"
+                android:layout_height="48dp"
+                android:layout_marginTop="8sp"
+                android:text="@string/option4Loans"
                 android:textSize="20sp"
-                android:layout_marginTop="8sp"/>
+                android:textStyle="bold" />
         </RadioGroup>
 
         <Button
@@ -111,7 +113,7 @@
             android:layout_marginTop="80sp"
             android:background="@drawable/border_card_total"
             android:gravity="center"
-            android:text="Confirmar"
+            android:text="@string/confirmed"
             android:textColor="@color/white" />
 
 

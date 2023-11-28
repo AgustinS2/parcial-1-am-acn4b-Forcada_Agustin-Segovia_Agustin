@@ -60,7 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16sp"
-            android:text="Detalle de Cuenta"
+            android:text="@string/account_details"
             android:textColor="@color/primaryColor"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -70,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16sp"
-            android:text="Cuenta de "
+            android:text="@string/account_name"
             android:textColor="@color/primaryColor"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -80,14 +80,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16sp"
-            android:text="CBU:"
+            android:text="@string/cbu"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/cbu"
             android:layout_width="match_parent"
-            android:text="08392390429"
+            android:text="@string/cbu_descript"
             android:textColor="@color/black"
             android:layout_height="48sp"
             android:layout_marginTop="8sp"
@@ -99,7 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16sp"
-            android:text="Alias:"
+            android:text="@string/alias"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
@@ -109,7 +109,7 @@
             android:layout_height="48sp"
             android:layout_marginTop="8sp"
             android:background="@color/inputColor"
-            android:text="banco.norte.rp"
+            android:text="@string/alias_descript"
             android:padding="14sp"
             android:textColor="@color/black" />
 
@@ -118,7 +118,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16sp"
-            android:text="Saldo:"
+            android:text="@string/balance"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
@@ -130,8 +130,7 @@
             android:autofillHints="number"
             android:background="@color/inputColor"
             android:ems="10"
-            android:inputType="number"
-            android:text="$ 123.301"
+            android:text="@string/balanceText"
             android:padding="14sp"
             android:textColor="@color/black" />
 

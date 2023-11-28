@@ -207,7 +207,7 @@
                 android:layout_height="@dimen/dimensionTransaction"
                 android:layout_weight="0"
                 android:background="@drawable/check_circle"
-                android:contentDescription="@string/descriptionTransaction1" />
+                android:contentDescription="@string/descriptionTransaction4" />
 
             <TextView
                 android:id="@+id/infoTransaction4"
@@ -217,7 +217,7 @@
                 android:layout_weight="1"
                 android:paddingStart="@dimen/paddingTransaction"
                 android:paddingEnd="0dp"
-                android:text="@string/infoTransaction1"
+                android:text="@string/infoTransaction4"
                 android:textColor="@color/black"
                 android:textSize="@dimen/transactionText"
                 android:textStyle="bold" />
@@ -249,7 +249,7 @@
                 android:layout_height="@dimen/dimensionTransaction"
                 android:layout_weight="0"
                 android:background="@drawable/pay"
-                android:contentDescription="@string/descriptionTransaction" />
+                android:contentDescription="@string/descriptionTransaction5" />
 
             <TextView
                 android:id="@+id/infoTransaction5"
@@ -259,7 +259,7 @@
                 android:layout_weight="1"
                 android:paddingStart="@dimen/paddingTransaction"
                 android:paddingEnd="0dp"
-                android:text="@string/infoTransaction2"
+                android:text="@string/infoTransaction5"
                 android:textColor="@color/black"
                 android:textSize="@dimen/transactionText"
                 android:textStyle="bold" />
@@ -293,7 +293,7 @@
                 android:layout_height="@dimen/dimensionTransaction"
                 android:layout_weight="0"
                 android:background="@drawable/shop"
-                android:contentDescription="@string/descriptionTransaction3" />
+                android:contentDescription="@string/descriptionTransaction6" />
 
             <TextView
                 android:id="@+id/infoTransaction6"
@@ -303,7 +303,7 @@
                 android:layout_weight="1"
                 android:paddingStart="@dimen/paddingTransaction"
                 android:paddingEnd="0dp"
-                android:text="@string/infoTransaction3"
+                android:text="@string/infoTransaction6"
                 android:textColor="@color/black"
                 android:textSize="@dimen/transactionText"
                 android:textStyle="bold" />
@@ -335,7 +335,7 @@
                 android:layout_height="@dimen/dimensionTransaction"
                 android:layout_weight="0"
                 android:background="@drawable/check_circle"
-                android:contentDescription="@string/descriptionTransaction1" />
+                android:contentDescription="@string/descriptionTransaction7" />
 
             <TextView
                 android:id="@+id/infoTransaction7"
@@ -345,7 +345,7 @@
                 android:layout_weight="1"
                 android:paddingStart="@dimen/paddingTransaction"
                 android:paddingEnd="0dp"
-                android:text="@string/infoTransaction1"
+                android:text="@string/infoTransaction7"
                 android:textColor="@color/black"
                 android:textSize="@dimen/transactionText"
                 android:textStyle="bold" />
@@ -377,7 +377,7 @@
                 android:layout_height="@dimen/dimensionTransaction"
                 android:layout_weight="0"
                 android:background="@drawable/pay"
-                android:contentDescription="@string/descriptionTransaction" />
+                android:contentDescription="@string/descriptionTransaction8" />
 
             <TextView
                 android:id="@+id/infoTransaction8"
@@ -387,7 +387,7 @@
                 android:layout_weight="1"
                 android:paddingStart="@dimen/paddingTransaction"
                 android:paddingEnd="0dp"
-                android:text="@string/infoTransaction2"
+                android:text="@string/infoTransaction8"
                 android:textColor="@color/black"
                 android:textSize="@dimen/transactionText"
                 android:textStyle="bold" />
@@ -421,7 +421,7 @@
                 android:layout_height="@dimen/dimensionTransaction"
                 android:layout_weight="0"
                 android:background="@drawable/shop"
-                android:contentDescription="@string/descriptionTransaction3" />
+                android:contentDescription="@string/descriptionTransaction9" />
 
             <TextView
                 android:id="@+id/infoTransaction9"
@@ -431,7 +431,7 @@
                 android:layout_weight="1"
                 android:paddingStart="@dimen/paddingTransaction"
                 android:paddingEnd="0dp"
-                android:text="@string/infoTransaction3"
+                android:text="@string/infoTransaction9"
                 android:textColor="@color/black"
                 android:textSize="@dimen/transactionText"
                 android:textStyle="bold" />
