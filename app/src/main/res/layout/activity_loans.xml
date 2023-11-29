@@ -107,7 +107,7 @@
         </RadioGroup>
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/confirmed_transaction"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="80sp"
