@@ -136,7 +136,7 @@
             tools:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextText3"
+            android:id="@+id/amoun_send"
             android:layout_width="match_parent"
             android:layout_height="48sp"
             android:layout_marginTop="8sp"
@@ -149,7 +149,7 @@
             android:textColorHint="@color/black" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/send_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="28sp"
