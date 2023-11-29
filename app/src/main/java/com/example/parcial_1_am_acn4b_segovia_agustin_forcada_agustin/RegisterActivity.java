@@ -25,6 +25,7 @@ public class RegisterActivity extends AppCompatActivity {
         EditText edad = findViewById(R.id.age);
 
         Button registrarse = findViewById(R.id.registerButton);
+        Button button_back = findViewById(R.id.button_back);
 
 
         registrarse.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +47,14 @@ public class RegisterActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(RegisterActivity.this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        button_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }
