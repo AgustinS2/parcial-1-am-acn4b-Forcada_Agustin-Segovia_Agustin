@@ -1,5 +1,6 @@
 package com.example.parcial_1_am_acn4b_segovia_agustin_forcada_agustin;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import Modelo.User;
@@ -42,7 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
                     User usuario_nuevo = new User(name,surname,email,pass,edad_user);
                     Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                     intent.putExtra("usuarionuevo", usuario_nuevo);
-                    startActivity(intent);
+                    successOperation(intent);
 
                 } else {
                     Toast.makeText(RegisterActivity.this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
@@ -57,5 +59,21 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void successOperation(Intent intent)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Succes");
+        builder.setMessage("La cuenta se realizo con exito");
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                startActivity(intent);
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
     }
 }
