@@ -1,6 +1,6 @@
 # parcial-1-am-acn4b-Forcada_Agustin-Segovia_Agustin
 La tematica que elegimos esta relacionado con la App de un Banco "Del norte"
-Comenzamos eligiendo la primera activity que seria la de inicio de sesion con un usuario de tipo Usuario creado de forma hardcodeada, donde el usuario es Agustin o el mail es agus@gmail.com y la contraseña es "abc123"
-Luego de esto nos mandara a la ActivityHome donde en un futuro tendra muchas funcionalidades como lo son un menu hamburguesa, diferentes actividades como lo serian transacciones, envio de dinero, recibos de dinero, etc. Y todas cuentan con sus respectivos iconos.
-Si el usuario ingresa mal sus datos lo que va a pasar es que va a aparecer un cartel en la pantalla de datos incorrectos.
-Y por ultimo si apretamos el boton de registrate, nos enviara a la activity de registro la cual todavia esta en proceso, pero se ve en el proyecto, la cual se podra en un futuro crear a un usuario y luego de crearse volveria a la pagina de login para poder iniciar sesion.
+Comenzamos eligiendo la primera activity que seria la de inicio de sesion con un usuario de tipo Usuario creado de forma hardcodeada, donde el usuario es Agustin o el mail es agus@gmail.com y la contraseña es "abc123", los usuarios que se logueen van a pasarse sus datos mediante un Extra, hacia todas las vistas para mostrar datos y realizar operaciones como por ejemplo al enviar dinero o al poner dinero en un plazo fijo, se va a chequear que el usuario tenga ese balance en su tarjeta y se procedera con la operacion y la resta de balance.
+En cada nueva vista hay un boton para volver atras, y en el HomeActivity hay un boton para cerrar la sesion y se vuelve al login.
+Se puede utilizar la vista de registro para crear un nuevo usuario completando todos los datos se maqueta el usuario y se mando por en Intent hacia el login.
+Si el usuario ingresa mal sus datos lo que va a pasar es que va a aparecer un cartel en la pantalla de datos incorrectos. Y en todas las operaciones si se dejan campos importantes vacios tambien nos mostrara un cartel de que no se pudo realizar la operacion.
