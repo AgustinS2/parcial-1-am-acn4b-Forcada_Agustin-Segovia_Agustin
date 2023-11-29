@@ -35,7 +35,8 @@ public class CreditCardActivity extends AppCompatActivity {
 
         User usuario_actual = (User) getIntent().getSerializableExtra("usuario");
 
-                // Acceder a los datos del usuario y mostrarlos en el TextView
+        if (!usuario_actual.getAccount().getCreditCards().isEmpty()){
+
         textMarca1.setText(textMarca1.getText() + " " + usuario_actual.getAccount().getCreditCards().get(0).getMarca());
         textEstado1.setText(textEstado1.getText() + " " + usuario_actual.getAccount().getCreditCards().get(0).getEstado());
         textBalance1.setText(textBalance1.getText() + " " + usuario_actual.getAccount().getCreditCards().get(0).getSaldo_actual());
@@ -46,13 +47,14 @@ public class CreditCardActivity extends AppCompatActivity {
         textBalance2.setText(textBalance2.getText() + " " + usuario_actual.getAccount().getCreditCards().get(1).getSaldo_actual());
         textAccountNumber2.setText(textAccountNumber2.getText() + " " + usuario_actual.getAccount().getCreditCards().get(1).getNumero_cuenta());
         textCardNumber2.setText(textCardNumber2.getText() + " " + usuario_actual.getAccount().getCreditCards().get(1).getNumero_tarjeta());
-
+        }
 
 
         button_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CreditCardActivity.this, HomeActivity.class);
+                intent.putExtra("usuario", usuario_actual);
                 startActivity(intent);
             }
         });

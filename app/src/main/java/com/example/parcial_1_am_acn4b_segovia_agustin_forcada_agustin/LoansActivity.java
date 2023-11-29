@@ -26,6 +26,7 @@ public class LoansActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoansActivity.this, HomeActivity.class);
+                intent.putExtra("usuario", usuario_actual);
                 startActivity(intent);
             }
         });

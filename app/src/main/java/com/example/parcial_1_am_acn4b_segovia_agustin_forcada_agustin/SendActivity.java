@@ -47,6 +47,7 @@ public class SendActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SendActivity.this, HomeActivity.class);
+                intent.putExtra("usuario", usuario_actual);
                 startActivity(intent);
             }
         });

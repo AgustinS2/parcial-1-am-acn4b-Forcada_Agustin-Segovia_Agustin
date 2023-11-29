@@ -41,6 +41,7 @@ public class ReceiveActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ReceiveActivity.this, HomeActivity.class);
+                intent.putExtra("usuario", usuario_actual);
                 startActivity(intent);
             }
         });
