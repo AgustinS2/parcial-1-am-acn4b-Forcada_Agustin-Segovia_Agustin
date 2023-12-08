@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "972843767374",
+    "project_id": "bancodelnorte-8b1c0",
+    "storage_bucket": "bancodelnorte-8b1c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:972843767374:android:8e27c31ef0c055e0a9d51f",
+        "android_client_info": {
+          "package_name": "com.example.parcial_1_am_acn4b_segovia_agustin_forcada_agustin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiwVr27v-WGRmxRA1rtczaX-ysTJjyi_A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
