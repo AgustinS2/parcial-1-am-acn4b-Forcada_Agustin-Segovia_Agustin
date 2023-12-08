@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextClock;
@@ -14,6 +15,8 @@ import android.widget.Toast;
 import android.widget.EditText;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -26,10 +29,19 @@ import Modelo.User;
 
 public class MainActivity extends AppCompatActivity {
 
+    private FirebaseAuth mAuth;
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
         TextView usuario = findViewById(R.id.emailUsername);
         TextView passwordInput = findViewById(R.id.password);
@@ -82,6 +94,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            Log.i("firebase", "Usuario logueado");
+        }
+        else {
+            Log.i("firebase", "Usuario sin loguear");
+        }
     }
 
     private void showErrorDialog()
