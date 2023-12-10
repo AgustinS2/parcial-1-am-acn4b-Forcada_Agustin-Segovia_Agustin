@@ -1,5 +1,6 @@
 package com.example.parcial_1_am_acn4b_segovia_agustin_forcada_agustin;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,9 +15,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.EditText;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -31,9 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
-
-
-
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+
 
         TextView usuario = findViewById(R.id.emailUsername);
         TextView passwordInput = findViewById(R.id.password);
@@ -102,7 +108,35 @@ public class MainActivity extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
+            String uid = currentUser.getUid();
+
+            db.collection("users").whereEqualTo("uid", uid).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if (task.isSuccessful()) {
+                        for(QueryDocumentSnapshot documento : task.getResult()) {
+                            String id = documento.getId();
+                            Object data = documento.getData();
+
+                            User usernew = documento.toObject(User.class);
+
+                            // CAMBIAR DATOS
+                            db.collection("users").document(id).update("apellido", "segovia").addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+
+                                }
+                            });
+
+                            Log.i("firebase firestore", "id" + id + "data:" + data.toString());
+                        }
+                    }
+                }
+            });
+
             Log.i("firebase", "Usuario logueado");
+            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+            startActivity(intent);
         }
         else {
             Log.i("firebase", "Usuario sin loguear");
