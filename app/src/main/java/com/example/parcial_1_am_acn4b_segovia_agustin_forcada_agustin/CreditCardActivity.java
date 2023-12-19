@@ -27,26 +27,16 @@ public class CreditCardActivity extends AppCompatActivity {
         TextView textBalance1 = findViewById(R.id.textBalance1);
         TextView textAccountNumber1 = findViewById(R.id.textAccountNumber1);
         TextView textCardNumber1 = findViewById(R.id.textCardNumber1);
-        TextView textMarca2 = findViewById(R.id.textMarca2);
-        TextView textEstado2 = findViewById(R.id.textEstado2);
-        TextView textBalance2 = findViewById(R.id.textBalance2);
-        TextView textAccountNumber2 = findViewById(R.id.textAccountNumber2);
-        TextView textCardNumber2 = findViewById(R.id.textCardNumber2);
 
         User usuario_actual = (User) getIntent().getSerializableExtra("usuario");
 
-        if (!usuario_actual.getAccount().getCreditCards().isEmpty()){
+        if (usuario_actual != null){
 
-        textMarca1.setText(textMarca1.getText() + " " + usuario_actual.getAccount().getCreditCards().get(0).getMarca());
-        textEstado1.setText(textEstado1.getText() + " " + usuario_actual.getAccount().getCreditCards().get(0).getEstado());
-        textBalance1.setText(textBalance1.getText() + " " + usuario_actual.getAccount().getCreditCards().get(0).getSaldo_actual());
-        textAccountNumber1.setText(textAccountNumber1.getText() + " " + usuario_actual.getAccount().getCreditCards().get(0).getNumero_cuenta());
-        textCardNumber1.setText(textCardNumber1.getText() + " " + usuario_actual.getAccount().getCreditCards().get(0).getNumero_tarjeta());
-        textMarca2.setText(textMarca2.getText() + " " + usuario_actual.getAccount().getCreditCards().get(1).getMarca());
-        textEstado2.setText(textEstado2.getText() + " " + usuario_actual.getAccount().getCreditCards().get(1).getEstado());
-        textBalance2.setText(textBalance2.getText() + " " + usuario_actual.getAccount().getCreditCards().get(1).getSaldo_actual());
-        textAccountNumber2.setText(textAccountNumber2.getText() + " " + usuario_actual.getAccount().getCreditCards().get(1).getNumero_cuenta());
-        textCardNumber2.setText(textCardNumber2.getText() + " " + usuario_actual.getAccount().getCreditCards().get(1).getNumero_tarjeta());
+        textMarca1.setText(textMarca1.getText() + " " + usuario_actual.getMarca());
+        textEstado1.setText(textEstado1.getText() + " " + usuario_actual.getEstado());
+        textBalance1.setText(textBalance1.getText() + " " + usuario_actual.getBalance());
+        textAccountNumber1.setText(textAccountNumber1.getText() + " " + usuario_actual.getNumeroCuenta());
+        textCardNumber1.setText(textCardNumber1.getText() + " " + usuario_actual.getNumeroTarjeta());
         }
 
 

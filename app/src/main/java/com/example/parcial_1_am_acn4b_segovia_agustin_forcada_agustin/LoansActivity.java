@@ -16,9 +16,25 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import Modelo.User;
 
 public class LoansActivity extends AppCompatActivity {
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    FirebaseUser currentUser = mAuth.getCurrentUser();
+    String uid = currentUser.getUid();
+
+    DocumentReference userDocRef = db.collection("users").document(uid);
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -72,9 +88,17 @@ public class LoansActivity extends AppCompatActivity {
     }
 
     private void agregarSaldo(int cantidad, User usuario_actual) {
-        if (!usuario_actual.getAccount().getCreditCards().isEmpty()) {
-            double saldo_actual = usuario_actual.getAccount().getCreditCards().get(0).getSaldo_actual();
-            usuario_actual.getAccount().getCreditCards().get(0).setSaldo_actual(saldo_actual + cantidad);
+        if (usuario_actual != null) {
+            double saldo_actual = usuario_actual.getBalance();
+            usuario_actual.setBalance(saldo_actual + cantidad);
+            Map<String, Object> actualizarDatos = new HashMap<>();
+            actualizarDatos.put("balance", usuario_actual.getBalance());
+            userDocRef.update(actualizarDatos).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    Log.i("TAG", "Actualizado");
+                }
+            });
             Intent intent = new Intent(LoansActivity.this, HomeActivity.class);
             intent.putExtra("usuario", usuario_actual);
             successOperation(intent);

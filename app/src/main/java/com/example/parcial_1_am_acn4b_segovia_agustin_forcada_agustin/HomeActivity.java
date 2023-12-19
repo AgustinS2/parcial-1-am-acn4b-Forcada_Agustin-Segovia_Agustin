@@ -1,10 +1,13 @@
 package com.example.parcial_1_am_acn4b_segovia_agustin_forcada_agustin;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,6 +25,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
+
         Button fixedTerm = findViewById(R.id.fixedButton);
         Button send_button = findViewById(R.id.sendButton);
         Button loans_button = findViewById(R.id.loansButton);
@@ -33,14 +37,16 @@ public class HomeActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         if (intent != null) {
+            Log.d("HomeActivity", "Intent is not null");
             User usuario_actual = (User) getIntent().getSerializableExtra("usuario");
 
             // Verificar si el objeto Usuario no es nulo
             if (usuario_actual != null) {
+                Log.d("HomeActivity", "Usuario_actual is not null");
                 // Acceder a los datos del usuario
                 TextView balance_text = findViewById(R.id.textBalance);
                 String texto_actual = balance_text.getText().toString();
-                String balance_format = NumberFormat.getNumberInstance().format(usuario_actual.getAccount().getBalance());
+                String balance_format = NumberFormat.getNumberInstance().format(usuario_actual.getBalance());
                 String texto = texto_actual + " " + balance_format;
                 balance_text.setText(texto);
 
@@ -110,6 +116,21 @@ public class HomeActivity extends AppCompatActivity {
 
 
         }
+
+    }
+    private void dialog(String text)
+    {
+        AlertDialog.Builder builder =new AlertDialog.Builder(this);
+        builder.setTitle("Error");
+        builder.setMessage(text);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
 
     }
 }

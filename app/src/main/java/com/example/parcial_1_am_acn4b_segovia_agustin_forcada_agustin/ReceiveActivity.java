@@ -24,13 +24,13 @@ public class ReceiveActivity extends AppCompatActivity {
         TextView amount_total = findViewById(R.id.amount_total);
 
 
-        String textAlias = usuario_actual.getAccount().getAlias();
+        String textAlias = usuario_actual.getAlias();
         alias.setText(textAlias);
 
-        String textCbu = String.valueOf(usuario_actual.getAccount().getCbu());
+        String textCbu = String.valueOf(usuario_actual.getCbu());
         cbu.setText(textCbu);
 
-        String textAmount = String.valueOf(usuario_actual.getAccount().getBalance());
+        String textAmount = String.valueOf(usuario_actual.getBalance());
         amount_total.setText(textAmount);
 
 

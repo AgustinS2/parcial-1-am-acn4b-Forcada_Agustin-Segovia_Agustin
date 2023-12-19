@@ -3,6 +3,7 @@ package com.example.parcial_1_am_acn4b_segovia_agustin_forcada_agustin;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -12,10 +13,25 @@ import android.widget.Spinner;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import Modelo.CreditCard;
 import Modelo.User;
 
 public class SendActivity extends AppCompatActivity {
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    FirebaseUser currentUser = mAuth.getCurrentUser();
+    String uid = currentUser.getUid();
+
+    DocumentReference userDocRef = db.collection("users").document(uid);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -34,11 +50,11 @@ public class SendActivity extends AppCompatActivity {
 
         String[] opciones_send = {"Selecciones una cuenta de envio agendada", "Cuenta de Melina", "Cuenta de Joaquin", "Cuenta de Marcos"};
         String[] opciones_destination;
-        if (!usuario_actual.getAccount().getCreditCards().isEmpty()){
-            opciones_destination = new String[] {"Selecciones una cuenta de destino", String.valueOf(usuario_actual.getAccount().getCreditCards().get(0).getNumero_cuenta()), String.valueOf(usuario_actual.getAccount().getCreditCards().get(1).getNumero_cuenta())};
+        if (usuario_actual != null){
+            opciones_destination = new String[] {"Selecciones una cuenta de destino", String.valueOf(usuario_actual.getNumeroCuenta())};
         }
         else {
-            opciones_destination = new String[] {"No hay cuentas de destino, es una cuenta nueva"};
+            opciones_destination = new String[] {"No hay cuentas de destino"};
         }
 
         String[] opciones_reason = {"Seleccione un motivo", "Alquileres", "Honorarios", "Donaciones", "Varios"};
@@ -68,12 +84,17 @@ public class SendActivity extends AppCompatActivity {
                 if (destination != opciones_destination[0] && send != opciones_send[0] && motivo != opciones_reason[0] && !amount_send.getText().toString().isEmpty()){
                     int destination_account = Integer.parseInt(destination);
                     double amount_destination_acc = Double.parseDouble(amount_send.getText().toString());
-                    for (CreditCard c: usuario_actual.getAccount().getCreditCards()) {
-                        if (destination_account == c.getNumero_cuenta() && amount_destination_acc <= c.getSaldo_actual()) {
-                            c.setSaldo_actual(c.getSaldo_actual() - amount_destination_acc);
-                            operationSuccess = true;
-                            break;
-                        }
+                    if (destination_account == usuario_actual.getNumeroCuenta() && amount_destination_acc <= usuario_actual.getBalance()) {
+                        usuario_actual.setBalance(usuario_actual.getBalance() - amount_destination_acc);
+                        Map<String, Object> actualizarDatos = new HashMap<>();
+                        actualizarDatos.put("balance", usuario_actual.getBalance());
+                        userDocRef.update(actualizarDatos).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Log.i("TAG", "Actualizado");
+                            }
+                        });
+                        operationSuccess = true;
                     }
                 }
                 if (operationSuccess) {

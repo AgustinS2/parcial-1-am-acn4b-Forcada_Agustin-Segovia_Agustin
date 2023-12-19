@@ -18,8 +18,11 @@ import android.widget.EditText;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -35,9 +38,11 @@ import Modelo.User;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
+    public FirebaseAuth mAuth;
 
-    private FirebaseFirestore db;
+    public FirebaseFirestore db;
+
+    public User usuario_actual;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,11 +70,8 @@ public class MainActivity extends AppCompatActivity {
 
         Button register = findViewById(R.id.buttonRegister);
         Button ingreso = findViewById(R.id.buttonLogin);
-        User agustin = new User("Agustin", "Segovia", "agus@gmail.com", "abc123", 22, account1);
-        User lucas = new User("Lucas", "Segovia", "lucas@gmail.com", "abc1234", 32, account2);
         List<User> listUser = new ArrayList<>();
-        listUser.add(agustin);
-        listUser.add(lucas);
+
 
 
         Intent intent = getIntent();
@@ -87,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         ingreso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                login(usuario,passwordInput,listUser);
+                login(usuario,passwordInput);
 
             }
         });
@@ -110,33 +112,22 @@ public class MainActivity extends AppCompatActivity {
         if(currentUser != null){
             String uid = currentUser.getUid();
 
-            db.collection("users").whereEqualTo("uid", uid).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            DocumentReference userDocRef = db.collection("users").document(uid);
+
+            userDocRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
-                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                    if (task.isSuccessful()) {
-                        for(QueryDocumentSnapshot documento : task.getResult()) {
-                            String id = documento.getId();
-                            Object data = documento.getData();
-
-                            User usernew = documento.toObject(User.class);
-
-                            // CAMBIAR DATOS
-                            db.collection("users").document(id).update("apellido", "segovia").addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-
-                                }
-                            });
-
-                            Log.i("firebase firestore", "id" + id + "data:" + data.toString());
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()){
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()){
+                            usuario_actual = document.toObject(User.class);
+                            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                            intent.putExtra("usuario", usuario_actual);
+                            startActivity(intent);
                         }
                     }
                 }
             });
-
-            Log.i("firebase", "Usuario logueado");
-            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-            startActivity(intent);
         }
         else {
             Log.i("firebase", "Usuario sin loguear");
@@ -158,20 +149,55 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
 
     }
-
-
-    public boolean login(TextView user, TextView pass, List<User> users) {
-        for (User u : users) {
-            if ((user.getText().toString().toLowerCase().equals(u.getName().toLowerCase()) || user.getText().toString().toLowerCase().equals(u.getEmail().toLowerCase()))
-                    && pass.getText().toString().toLowerCase().equals(u.getPassword().toLowerCase())) {
-                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                intent.putExtra("usuario", u);
-                startActivity(intent);
-                return true;
+    private void dialog(String text)
+    {
+        AlertDialog.Builder builder =new AlertDialog.Builder(this);
+        builder.setTitle("Error");
+        builder.setMessage(text);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //
             }
-        }
-        showErrorDialog();
-        return false;
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+    }
+
+
+    public void login(TextView user, TextView pass) {
+        String username = user.getText().toString();
+        String password = pass.getText().toString();
+        mAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    FirebaseUser currentUser = mAuth.getCurrentUser();
+                    if (currentUser != null){
+                        String uid = currentUser.getUid();
+                        DocumentReference userDocRef = db.collection("users").document(uid);
+                        userDocRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                if (task.isSuccessful()){
+                                    DocumentSnapshot document = task.getResult();
+                                    if (document.exists()){
+                                        usuario_actual = document.toObject(User.class);
+                                        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                                        intent.putExtra("usuario", usuario_actual);
+                                        startActivity(intent);
+                                    }
+                                }
+                            }
+                        });
+                    }
+                } else {
+                    showErrorDialog();
+                }
+            }
+        });
+
     }
 
 }

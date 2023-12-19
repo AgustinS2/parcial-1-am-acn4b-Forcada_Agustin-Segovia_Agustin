@@ -33,13 +33,14 @@ import Modelo.User;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         EditText email_register = findViewById(R.id.email);
         EditText password = findViewById(R.id.password_account);
@@ -69,6 +70,8 @@ public class RegisterActivity extends AppCompatActivity {
                                 // Usuario registrado con éxito en Firebase Authentication
                                 String userId = mAuth.getCurrentUser().getUid(); // Obtén el ID del usuario
                                 saveUserDataToFirestore(userId, email, name, surname, age);
+                                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                successOperation(intent);
                             }
                             else {
                                 Log.w("TAG", "createUserWithEmail:failure", task.getException());
@@ -117,12 +120,31 @@ public class RegisterActivity extends AppCompatActivity {
         // Obtén una referencia a la colección de usuarios en Firestore
         CollectionReference usersCollection = FirebaseFirestore.getInstance().collection("users");
 
+
+        int numerotarjeta = Integer.parseInt(generarNumeroTarjeta());
+        int numerocuenta = Integer.parseInt(generarNumeroTarjeta());
+        int cbu = Integer.parseInt(generarNumeroTarjeta());
+        String alias = generarAlias();
+
+
         // Crea un objeto Map con los datos del usuario
         Map<String, Object> userData = new HashMap<>();
         userData.put("email", email);
         userData.put("name", name);
         userData.put("surname", surname);
         userData.put("age", age);
+        userData.put("balance", 10.0);
+        userData.put("marca", "Visa");
+        userData.put("estado", "Deshabilitada");
+        userData.put("numerotarjeta", numerotarjeta);
+        userData.put("numerocuenta", numerocuenta);
+        userData.put("cbu", cbu);
+        userData.put("alias", alias);
+
+
+
+
+
 
         // Agrega el usuario a Firestore usando el ID del usuario en Firebase Authentication como identificador
         usersCollection.document(userId).set(userData)
@@ -143,5 +165,38 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 
+
+        // Método para generar un número de tarjeta aleatorio
+        public String generarNumeroTarjeta() {
+            Random random = new Random();
+            StringBuilder numeroTarjeta = new StringBuilder();
+
+            // Agrega 16 dígitos al número de tarjeta (puedes ajustar según tus necesidades)
+            for (int i = 0; i < 8; i++) {
+                int digito = random.nextInt(10);
+                numeroTarjeta.append(digito);
+            }
+
+            return numeroTarjeta.toString();
+        }
+
+        // Método para generar un alias aleatorio
+        public String generarAlias() {
+            String caracteres = "abcdefghijklmnopqrstuvwxyz0123456789";
+            Random random = new Random();
+            StringBuilder alias = new StringBuilder();
+
+            // Agrega 8 caracteres al alias (puedes ajustar según tus necesidades)
+            for (int i = 0; i < 8; i++) {
+                if (i == 4) {
+                    alias.append(".");
+                } else {
+                int indice = random.nextInt(caracteres.length());
+                alias.append(caracteres.charAt(indice));
+                }
+            }
+
+            return alias.toString();
+        }
 
 }
